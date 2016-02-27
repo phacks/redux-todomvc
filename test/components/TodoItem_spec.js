@@ -4,7 +4,8 @@ import TodoItem from '../../src/components/TodoItem';
 import {expect} from 'chai';
 
 const {renderIntoDocument,
-       scryRenderedDOMComponentsWithTag} = TestUtils;
+       scryRenderedDOMComponentsWithTag,
+       Simulate} = TestUtils;
 
 describe('TodoItem', () => {
   it('renders an item', () => {
@@ -48,5 +49,43 @@ describe('TodoItem', () => {
     const input = scryRenderedDOMComponentsWithTag(component, 'input');
     expect(input[0].checked).to.equal(true);
     expect(input[1].checked).to.equal(false);
+  });
+
+  it('invokes callback when the delete button is clicked', () => {
+    const text = 'React';
+    var deleted = false;
+    const deleteItem = () => deleted = true;
+    const component = renderIntoDocument(
+      <TodoItem text={text} deleteItem={deleteItem}/>
+    );
+    const buttons = scryRenderedDOMComponentsWithTag(component, 'button');
+    Simulate.click(buttons[0]);
+
+    expect(deleted).to.equal(true);
+  });
+
+  it('invokes callback when checkbox is clicked', () => {
+    const text = 'React';
+    var isChecked = false;
+    const toggleComplete = () => isChecked = true;
+    const component = renderIntoDocument(
+      <TodoItem text={text} toggleComplete={toggleComplete}/>
+    );
+    const checkboxes = scryRenderedDOMComponentsWithTag(component, 'input');
+    Simulate.click(checkboxes[0]);
+
+    expect(isChecked).to.equal(true);
+  });
+
+  it('calls a callback when text is double clicked', () => {
+    var text = 'React';
+    const editItem = () => text = 'Redux';
+    const component = renderIntoDocument(
+      <TodoItem text={text} editItem={editItem}/>
+    );
+    const label = component.refs.text
+    Simulate.doubleClick(label);
+
+    expect(text).to.equal('Redux');
   });
 });
