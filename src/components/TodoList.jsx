@@ -22,8 +22,14 @@ export default React.createClass({
         {this.getItems().map(item =>
           <TodoItem key={item.get('text')}
                     text={item.get('text')}
+                    id={item.get('id')}
                     isCompleted={this.isCompleted(item)}
-                    isEditing={item.get('editing')} />
+                    isEditing={item.get('editing')}
+                    doneEditing={this.props.doneEditing}
+                    cancelEditing={this.props.cancelEditing}
+                    toggleComplete={this.props.toggleComplete}
+                    deleteItem={this.props.deleteItem}
+                    editItem={this.props.editItem}/>
         )}
       </ul>
     </section>
