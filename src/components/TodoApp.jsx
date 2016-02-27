@@ -5,7 +5,7 @@ export default React.createClass({
   render: function () {
     return <div>
       <section className="todoapp">
-        <TodoList todos={this.props.todos} />
+        <TodoList todos={this.props.todos} filter={this.props.filter} />
       </section>
     </div>
   }
