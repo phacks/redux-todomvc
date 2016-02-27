@@ -1,9 +1,9 @@
 import React from 'react';
-
+import PureRenderMixin from 'react-addons-pure-render-mixin'
 import TextInput from './TextInput';
 
 export default React.createClass({
-
+  mixins: [PureRenderMixin],
   render: function () {
     return <li className="todo">
       <div className="view">
