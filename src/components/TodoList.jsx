@@ -13,12 +13,17 @@ export default React.createClass({
     }
     return [];
   },
+  isCompleted: function(item) {
+    return item.get('status') === 'completed';
+  },
   render: function () {
     return <section className="main">
       <ul className="todo-list">
         {this.getItems().map(item =>
           <TodoItem key={item.get('text')}
-                    text={item.get('text')} />
+                    text={item.get('text')}
+                    isCompleted={this.isCompleted(item)}
+                    isEditing={item.get('editing')} />
         )}
       </ul>
     </section>
