@@ -2,9 +2,12 @@ import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 import TodoItem from './TodoItem';
 
-export default React.createClass({
-  mixins: [PureRenderMixin],
-  getItems: function () {
+export default class TodoList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
+  }
+  getItems() {
     if (this.props.todos) {
       return this.props.todos.filter(
         (item) => this.props.filter === 'all' ||
@@ -12,11 +15,11 @@ export default React.createClass({
       );
     }
     return [];
-  },
-  isCompleted: function(item) {
+  }
+  isCompleted(item) {
     return item.get('status') === 'completed';
-  },
-  render: function () {
+  }
+  render() {
     return <section className="main">
       <ul className="todo-list">
         {this.getItems().map(item =>
@@ -34,4 +37,4 @@ export default React.createClass({
       </ul>
     </section>
   }
-});
+};

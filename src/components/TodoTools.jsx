@@ -2,18 +2,21 @@ import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import classNames from 'classnames';
 
-export default React.createClass({
-  mixins: [PureRenderMixin],
-  getNbItemsLeft: function () {
+export default class TodoTools extends React.Component {
+  constructor(props) {
+    super(props);
+    this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
+  }
+  getNbItemsLeft() {
     return this.props.nbActiveItems || 0;
-  },
-  isSelected: function (filter) {
+  }
+  isSelected(filter) {
     return this.props.selectedFilter === filter || false;
-  },
-  setSelectedClass: function (filter) {
+  }
+  setSelectedClass(filter) {
     return classNames({'selected': this.props.filter === filter});
-  },
-  render: function () {
+  }
+  render() {
     return <footer className="footer">
       <span className="todo-count">
         <strong>{this.getNbItemsLeft()}</strong> items left
@@ -47,4 +50,4 @@ export default React.createClass({
       </button>
     </footer>
   }
-});
+};

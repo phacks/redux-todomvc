@@ -3,9 +3,12 @@ import PureRenderMixin from 'react-addons-pure-render-mixin'
 import classNames from 'classnames';
 import TextInput from './TextInput';
 
-export default React.createClass({
-  mixins: [PureRenderMixin],
-  render: function () {
+export default class TodoItem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
+  }
+  render() {
     var itemClass = classNames({
       'todo': true,
       'completed': this.props.isCompleted,
@@ -31,4 +34,4 @@ export default React.createClass({
                  doneEditing={this.props.doneEditing} />
     </li>
   }
-});
+};
