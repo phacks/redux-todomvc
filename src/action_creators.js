@@ -11,3 +11,25 @@ export function changeFilter(filter) {
     filter
   }
 }
+
+export function editItem(itemId) {
+  return {
+    type: 'EDIT_ITEM',
+    itemId
+  }
+}
+
+export function doneEditing(itemId, newText) {
+  return {
+    type: 'DONE_EDITING',
+    itemId,
+    newText
+  }
+}
+
+export function cancelEditing(itemId) {
+  return {
+    type: 'CANCEL_EDITING',
+    itemId
+  }
+}
