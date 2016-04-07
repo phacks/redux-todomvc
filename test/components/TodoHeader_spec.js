@@ -21,6 +21,7 @@ describe('TodoHeader', () => {
     Simulate.keyPress(input, {key: "Enter", keyCode: 13, which: 13});
 
     expect(addedItem).to.equal('This is a new item');
+    expect(input.value).to.equal('');
   });
 
 });
