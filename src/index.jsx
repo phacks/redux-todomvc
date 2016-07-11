@@ -6,6 +6,8 @@ import {Provider} from 'react-redux';
 import reducer from './reducer';
 import {TodoAppContainer} from './components/TodoApp';
 
+import 'todomvc-app-css/index.css';
+
 const createStoreDevTools = compose(
   window.devToolsExtension ? window.devToolsExtension() : f => f
 )(createStore);
@@ -21,8 +23,6 @@ store.dispatch({
     filter: 'all'
   }
 });
-
-require('../node_modules/todomvc-app-css/index.css');
 
 ReactDOM.render(
   <Provider store={store}>
