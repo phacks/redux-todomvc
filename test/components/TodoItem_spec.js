@@ -42,13 +42,18 @@ describe('TodoItem', () => {
   it('should be checked if the item is completed', () => {
     const text = 'React';
     const text2 = 'Redux';
-    const component = renderIntoDocument(
-      <TodoItem text={text} isCompleted={true}/>,
+    const component1 = renderIntoDocument(
+      <TodoItem text={text} isCompleted={true}/>
+    );
+    const component2 = renderIntoDocument(
       <TodoItem text={text2} isCompleted={false}/>
     );
-    const input = scryRenderedDOMComponentsWithTag(component, 'input');
-    expect(input[0].checked).to.equal(true);
-    expect(input[1].checked).to.equal(false);
+
+    const input1 = scryRenderedDOMComponentsWithTag(component1, 'input');
+    const input2 = scryRenderedDOMComponentsWithTag(component2, 'input');
+
+    expect(input1[0].checked).to.equal(true);
+    expect(input2[0].checked).to.equal(false);
   });
 
   it('invokes callback when the delete button is clicked', () => {
