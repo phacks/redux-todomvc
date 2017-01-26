@@ -1,13 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
 import classNames from 'classnames';
 
-export default class TextInput extends React.Component {
+export default class TextInput extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {value: props.text};
-    this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
   }
 
   cancelEditing() {
