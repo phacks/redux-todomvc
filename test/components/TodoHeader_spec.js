@@ -24,4 +24,12 @@ describe('TodoHeader', () => {
     expect(input.value).to.equal('');
   });
 
+  it('should be autofocused when rendered', () => {
+		const component = renderIntoDocument(
+			<TodoHeader/>
+		);
+		const input = component.refs.addTodoInput;
+		
+		expect(document.activeElement).to.equal(input);
+	});
 });
