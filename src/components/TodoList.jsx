@@ -23,7 +23,7 @@ export default class TodoList extends React.Component {
     return <section className="main">
       <ul className="todo-list">
         {this.getItems().map(item =>
-          <TodoItem key={item.get('text')}
+          <TodoItem key={item.get('id')}
                     text={item.get('text')}
                     id={item.get('id')}
                     isCompleted={this.isCompleted(item)}
