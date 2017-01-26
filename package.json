@@ -4,6 +4,7 @@
   "description": "Companion repository for the \"Getting Started with React, Redux and Immutable: a Test-Driven TodoMVC Tutorial\" article.",
   "main": "index.js",
   "scripts": {
+		"start": "webpack-dev-server",
     "test": "mocha --compilers js:babel-core/register --require ./test/setup.js 'test/**/*.@(js|jsx)'",
     "test:watch": "npm run test -- --watch --watch-extensions jsx"
   },
