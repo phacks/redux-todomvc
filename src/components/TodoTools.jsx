@@ -5,9 +5,6 @@ export default class TodoTools extends React.PureComponent {
   getNbItemsLeft() {
     return this.props.nbActiveItems || 0;
   }
-  isSelected(filter) {
-    return this.props.selectedFilter === filter || false;
-  }
   setSelectedClass(filter) {
     return classNames({'selected': this.props.filter === filter});
   }
