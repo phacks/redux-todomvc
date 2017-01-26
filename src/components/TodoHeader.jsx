@@ -1,5 +1,4 @@
 import React from 'react';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
 
 export default class TodoHeader extends React.PureComponent {
   _handleKeyPress(e) {
