@@ -6,10 +6,6 @@ function findItemIndex(state, itemId) {
   );
 }
 
-function setState(state, newState) {
-  return state.merge(newState);
-}
-
 function toggleComplete(state, itemId) {
   const itemIndex = findItemIndex(state, itemId);
   const updatedItem = state.get('todos')
@@ -75,8 +71,6 @@ function deleteItem(state, itemId) {
 
 export default function(state = Map(), action) {
   switch (action.type) {
-    case 'SET_STATE':
-      return setState(state, action.state);
     case 'TOGGLE_COMPLETE':
       return toggleComplete(state, action.itemId);
     case 'CHANGE_FILTER':
