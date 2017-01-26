@@ -83,7 +83,7 @@ describe('reducer', () => {
     const action = {
       type: 'TOGGLE_COMPLETE',
       itemId: 1
-    }
+    };
     const nextState = reducer(initialState, action);
     expect(nextState).to.equal(fromJS({
       todos: [
@@ -105,7 +105,7 @@ describe('reducer', () => {
     const action = {
       type: 'TOGGLE_COMPLETE',
       itemId: 3
-    }
+    };
     const nextState = reducer(initialState, action);
     expect(nextState).to.equal(fromJS({
       todos: [
@@ -126,7 +126,7 @@ describe('reducer', () => {
     const action = {
       type: 'CHANGE_FILTER',
       filter: 'active'
-    }
+    };
     const nextState = reducer(initialState, action);
     expect(nextState).to.equal(fromJS({
       todos: [
@@ -145,7 +145,7 @@ describe('reducer', () => {
     const action = {
       type: 'EDIT_ITEM',
       itemId: 1
-    }
+    };
     const nextState = reducer(initialState, action);
     expect(nextState).to.equal(fromJS({
       todos: [
@@ -163,7 +163,7 @@ describe('reducer', () => {
     const action = {
       type: 'CANCEL_EDITING',
       itemId: 1
-    }
+    };
     const nextState = reducer(initialState, action);
     expect(nextState).to.equal(fromJS({
       todos: [
@@ -182,7 +182,7 @@ describe('reducer', () => {
       type: 'DONE_EDITING',
       itemId: 1,
       newText: 'Redux',
-    }
+    };
     const nextState = reducer(initialState, action);
     expect(nextState).to.equal(fromJS({
       todos: [
@@ -200,7 +200,7 @@ describe('reducer', () => {
     });
     const action = {
       type: 'CLEAR_COMPLETED'
-    }
+    };
     const nextState = reducer(initialState, action);
     expect(nextState).to.equal(fromJS({
       todos: [
@@ -218,7 +218,7 @@ describe('reducer', () => {
     const action = {
       type: 'ADD_ITEM',
       text: 'Redux'
-    }
+    };
     const nextState = reducer(initialState, action);
     expect(nextState).to.equal(fromJS({
       todos: [
@@ -238,7 +238,7 @@ describe('reducer', () => {
     const action = {
       type: 'DELETE_ITEM',
       itemId: 2
-    }
+    };
     const nextState = reducer(initialState, action);
     expect(nextState).to.equal(fromJS({
       todos: [
