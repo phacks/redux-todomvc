@@ -83,7 +83,7 @@ describe('TodoItem', () => {
     const component = renderIntoDocument(
       <TodoItem text={text} editItem={editItem}/>
     );
-    const label = component.refs.text
+    const label = component.refs.text;
     Simulate.doubleClick(label);
 
     expect(text).to.equal('Redux');

@@ -9,7 +9,7 @@ const {renderIntoDocument,
 
 describe('TodoHeader', () => {
   it('calls a callback on submit', () => {
-    var addedItem = ''
+    var addedItem = '';
     const addItem = (item) => addedItem = item;
     const component = renderIntoDocument(
       <TodoHeader addItem={addItem} />
