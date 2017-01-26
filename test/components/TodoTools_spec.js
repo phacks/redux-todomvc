@@ -18,7 +18,7 @@ describe('TodoTools', () => {
     expect(tools[0].textContent).to.contain('3');
   });
 
-  it('Highlights the active filter', () => {
+  it('highlights the active filter', () => {
     const filter = 'active';
     const component = renderIntoDocument(
       <TodoTools filter={filter} />
