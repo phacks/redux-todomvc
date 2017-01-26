@@ -33,4 +33,16 @@ describe('TextInput', () => {
 
     expect(hasCanceledEditing).to.equal(true);
   });
+  
+  it('should be autofocused when rendered', () => {
+    const text = 'React';
+    
+    const component = renderIntoDocument(
+      <TextInput text={text}/>
+    );
+    
+    const input = component.refs.itemInput;
+    
+    expect(document.activeElement).to.equal(input);
+  });
 });
