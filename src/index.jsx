@@ -1,17 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {List, Map} from 'immutable';
-import {compose, createStore} from 'redux';
+import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 import reducer from './reducer';
 import {TodoAppContainer} from './components/TodoApp';
 
 import 'todomvc-app-css/index.css';
 
-const createStoreDevTools = compose(
-  window.devToolsExtension ? window.devToolsExtension() : f => f
-)(createStore);
-const store = createStoreDevTools(reducer);
+const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+
 store.dispatch({
   type: 'SET_STATE',
   state: {
