@@ -34,7 +34,7 @@ export default class TextInput extends React.Component {
                   value={this.state.value}
                   onChange={this._handleOnChange.bind(this)}
                   type="text"
-                  ref="itemInput"
+                  ref={(el) => this.itemInput = el}
                   onKeyDown={this._handleKeyDown.bind(this)}
                   onBlur={this._handleOnBlur.bind(this)}
                   />
