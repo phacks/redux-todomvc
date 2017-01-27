@@ -72,7 +72,7 @@ describe('TodoItem', () => {
       <TodoItem text={text} toggleComplete={toggleComplete}/>
     );
     const checkboxes = scryRenderedDOMComponentsWithTag(component, 'input');
-    Simulate.click(checkboxes[0]);
+    Simulate.change(checkboxes[0]);
 
     expect(isChecked).to.equal(true);
   });
