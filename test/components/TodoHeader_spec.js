@@ -30,6 +30,6 @@ describe('TodoHeader', () => {
 		);
 		const input = component.refs.addTodoInput;
 		
-		expect(document.activeElement).to.equal(input);
+		expect(document.activeElement === input).to.be.true;
 	});
 });
