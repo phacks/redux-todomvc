@@ -1,13 +1,8 @@
 import React from 'react';
-import PureRenderMixin from 'react-addons-pure-render-mixin'
 import classNames from 'classnames';
 import TextInput from './TextInput';
 
-export default class TodoItem extends React.Component {
-  constructor(props) {
-    super(props);
-    this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
-  }
+export default class TodoItem extends React.PureComponent {
   render() {
     var itemClass = classNames({
       'todo': true,
@@ -21,7 +16,7 @@ export default class TodoItem extends React.Component {
                defaultChecked={this.props.isCompleted}
                onClick={() => this.props.toggleComplete(this.props.id)} />
         <label htmlFor="todo"
-               ref="text"
+               ref={(el) => this.text = el}
                onDoubleClick={() => this.props.editItem(this.props.id)}>
           {this.props.text}
         </label>

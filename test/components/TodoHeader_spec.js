@@ -15,7 +15,7 @@ describe('TodoHeader', () => {
       <TodoHeader addItem={addItem} />
     );
 
-    const input = component.refs.addTodoInput;
+    const input = component.addTodoInput;
     input.value = 'This is a new item';
     Simulate.change(input);
     Simulate.keyPress(input, {key: "Enter", keyCode: 13, which: 13});

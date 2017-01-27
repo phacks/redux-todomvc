@@ -1,17 +1,9 @@
 import React from 'react';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
 import classNames from 'classnames';
 
-export default class TodoTools extends React.Component {
-  constructor(props) {
-    super(props);
-    this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
-  }
+export default class TodoTools extends React.PureComponent {
   getNbItemsLeft() {
     return this.props.nbActiveItems || 0;
-  }
-  isSelected(filter) {
-    return this.props.selectedFilter === filter || false;
   }
   setSelectedClass(filter) {
     return classNames({'selected': this.props.filter === filter});

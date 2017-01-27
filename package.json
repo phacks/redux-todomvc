@@ -4,6 +4,7 @@
   "description": "Companion repository for the \"Getting Started with React, Redux and Immutable: a Test-Driven TodoMVC Tutorial\" article.",
   "main": "index.js",
   "scripts": {
+		"start": "webpack-dev-server",
     "test": "mocha --compilers js:babel-core/register --require ./test/setup.js 'test/**/*.@(js|jsx)'",
     "test:watch": "npm run test -- --watch --watch-extensions jsx"
   },
@@ -25,10 +26,10 @@
     "babel-preset-react": "^6.5.0",
     "chai": "^3.5.0",
     "chai-immutable": "^1.5.3",
-    "css-loader": "^0.23.1",
-    "jsdom": "^8.0.4",
-    "mocha": "^2.4.5",
-    "react-addons-test-utils": "^0.14.7",
+    "css-loader": "^0.26.1",
+    "jsdom": "^9.9.1",
+    "mocha": "^3.2.0",
+    "react-addons-test-utils": "^15.4.2",
     "react-hot-loader": "^1.3.0",
     "style-loader": "^0.13.0",
     "webpack": "^1.12.14",
@@ -43,10 +44,9 @@
   "dependencies": {
     "classnames": "^2.2.3",
     "immutable": "^3.7.6",
-    "react": "^0.14.7",
-    "react-addons-pure-render-mixin": "^0.14.7",
-    "react-dom": "^0.14.7",
-    "react-redux": "^4.4.1",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-redux": "^5.0.2",
     "redux": "^3.3.1",
     "todomvc-app-css": "^2.0.4"
   }
