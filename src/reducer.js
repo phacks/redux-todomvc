@@ -45,8 +45,7 @@ function doneEditing(state, itemId, newText) {
   const itemIndex = findItemIndex(state, itemId);
   const updatedItem = state.get('todos')
     .get(itemIndex)
-    .set('editing', false)
-    .set('text', newText);
+    .merge({'editing': false, 'text': newText});
 
   return state.update('todos', todos => todos.set(itemIndex, updatedItem));
 }
