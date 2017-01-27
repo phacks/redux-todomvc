@@ -7,9 +7,9 @@ export default class TodoHeader extends React.Component {
     this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
   }
   _handleKeyPress(e) {
-    if (e.key === 'Enter' && this.refs.addTodoInput.value !== '') {
-      const itemText = this.refs.addTodoInput.value;
-      this.refs.addTodoInput.value = '';
+    if (e.key === 'Enter' && this.addTodoInput.value !== '') {
+      const itemText = this.addTodoInput.value;
+      this.addTodoInput.value = '';
       return this.props.addItem(itemText);
     }
   }
@@ -17,7 +17,7 @@ export default class TodoHeader extends React.Component {
     return <header className="header">
       <h1>todos</h1>
       <input className="new-todo"
-             ref="addTodoInput"
+             ref={(el) => this.addTodoInput = el}
              autoFocus
              autoComplete="off"
              placeholder="What needs to be done?"
