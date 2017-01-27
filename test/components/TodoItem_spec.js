@@ -88,4 +88,34 @@ describe('TodoItem', () => {
 
     expect(text).to.equal('Redux');
   });
+  
+  it('should autofocus one of TextInputs when updated with props.isEditing = true', (done) => {
+		const text = 'React';
+		
+		class Com extends React.Component {
+			constructor(props) {
+        super(props);
+        this.state = {};
+      }
+			
+			render() {
+				return (
+          <div>
+            <TodoItem text={text} isEditing={this.state.isEditing}/>
+            <TodoItem text={text} isEditing={false}/>
+          </div>
+        );
+			}
+		}
+		
+		const component = renderIntoDocument(<Com/>);
+		
+		component.setState({isEditing: true}, () => {
+			const input = scryRenderedDOMComponentsWithTag(component, 'input');
+      
+      // expect().to.equal() hangs when computing diff report
+      expect(document.activeElement === input[1]).to.be.true;
+      done();
+		});
+	});
 });

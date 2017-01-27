@@ -15,7 +15,7 @@ describe('TextInput', () => {
     const component = renderIntoDocument(
       <TextInput text={text} doneEditing={doneEditing}/>
     );
-    const input = component.refs.itemInput
+    const input = component.itemInput
     Simulate.keyDown(input, {key: "Enter", keyCode: 13, which: 13});
 
     expect(hasDoneEditing).to.equal(true);
@@ -28,9 +28,21 @@ describe('TextInput', () => {
     const component = renderIntoDocument(
       <TextInput text={text} cancelEditing={cancelEditing}/>
     );
-    const input = component.refs.itemInput
+    const input = component.itemInput
     Simulate.keyDown(input, {key: "Escape", keyCode: 27, which: 27});
 
     expect(hasCanceledEditing).to.equal(true);
+  });
+  
+  it('should be autofocused when rendered', () => {
+    const text = 'React';
+    
+    const component = renderIntoDocument(
+      <TextInput text={text}/>
+    );
+    
+    const input = component.itemInput;
+    
+    expect(document.activeElement === input).to.be.true;
   });
 });
