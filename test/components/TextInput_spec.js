@@ -32,5 +32,10 @@ describe('TextInput', () => {
     Simulate.keyDown(input, {key: "Escape", keyCode: 27, which: 27});
 
     expect(hasCanceledEditing).to.equal(true);
+    
+    hasCanceledEditing = false;
+    Simulate.blur(input);
+    
+    expect(hasCanceledEditing).to.equal(true);
   });
 });
