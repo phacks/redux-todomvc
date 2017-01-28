@@ -24,21 +24,21 @@ export default class TodoTools extends React.Component {
       <ul className="filters">
         <li>
           <a href="#"
-             onClick={() => this.props.changeFilter('all')}
+             onClick={(e) => (e.preventDefault(), this.props.changeFilter('all'))}
              className={this.setSelectedClass('all')}>
              All
            </a>
         </li>
         <li>
           <a href="#"
-             onClick={() => this.props.changeFilter('active')}
+             onClick={(e) => (e.preventDefault(), this.props.changeFilter('active'))}
              className={this.setSelectedClass('active')}>
              Active
            </a>
         </li>
         <li>
           <a href="#"
-             onClick={() => this.props.changeFilter('completed')}
+             onClick={(e) => (e.preventDefault(), this.props.changeFilter('completed'))}
              className={this.setSelectedClass('completed')}>
              Completed
            </a>
