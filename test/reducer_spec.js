@@ -172,7 +172,7 @@ describe('reducer', () => {
     }));
   });
 
-  it('handles DONE_EDITING by setting by updating the text', () => {
+  it('handles DONE_EDITING by updating the text', () => {
     const initialState = fromJS({
       todos: [
         {id: 1, text: 'React', status: 'active', editing: true},
