@@ -18,7 +18,7 @@ describe('TodoTools', () => {
     expect(tools[0].textContent).to.contain('3');
   });
 
-  it('Highlights the active filter', () => {
+  it('highlights the active filter', () => {
     const filter = 'active';
     const component = renderIntoDocument(
       <TodoTools filter={filter} />
@@ -31,7 +31,7 @@ describe('TodoTools', () => {
   });
 
   it('calls a callback when the user clicks on Clear Completed buttons', () => {
-    var cleared = false
+    var cleared = false;
     const clearCompleted = () => cleared = true;
     const component = renderIntoDocument(
       <TodoTools clearCompleted={clearCompleted} />
